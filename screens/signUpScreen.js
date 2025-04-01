@@ -7,14 +7,13 @@ import { useNavigation } from '@react-navigation/native';
 export default function SignUpScreen({ navigation, switchScreen }) {
 
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [countryCode, setCountryCode] = useState('+91'); // Default India code
+  const [countryCode, setCountryCode] = useState('+91'); 
   const [otp, setOtp] = useState('');
   const [hasElectricVehicle, setHasElectricVehicle] = useState(false);
-  const [showCountryPicker, setShowCountryPicker] = useState(false); // State for controlling picker visibility
-
+  const [showCountryPicker, setShowCountryPicker] = useState(false); 
   return (
     <ImageBackground
-      source={require('../assets/splash-icon.png')} // Use dark background image
+      source={require('../assets/splash-icon.png')} 
       style={styles.backgroundImage}
     >
       <View style={styles.container}>
@@ -68,8 +67,8 @@ export default function SignUpScreen({ navigation, switchScreen }) {
             <Pressable
               style={styles.radioButton}
               onPress={() => {
+                navigation.navigate("AddVehicle")
                 setHasElectricVehicle(true);
-                switchScreen('AddVehicle')
               }}
             >
               <View style={[styles.radioCircle, hasElectricVehicle === true && styles.radioSelected]} />

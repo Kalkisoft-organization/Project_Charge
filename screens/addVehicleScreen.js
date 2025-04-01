@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, FlatList, Modal, ImageBackground } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-export default function AddVehicle({ switchScreen }) {
+export default function AddVehicle() {
+
+  const navigation = useNavigation();
+
   const [selectedBrand, setSelectedBrand] = useState('');
   const [selectedVehicle, setSelectedVehicle] = useState('');
   const [showVehicleDropdown, setShowVehicleDropdown] = useState(false);
@@ -95,7 +99,7 @@ export default function AddVehicle({ switchScreen }) {
 
       {/* Continue Button */}
       {showContinue && (
-        <TouchableOpacity style={styles.continueButton} onPress={() => switchScreen('SignUp')}>
+        <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate('SignUp')}>
           <Text style={styles.continueButtonText}>Continue</Text>
         </TouchableOpacity>
       )}

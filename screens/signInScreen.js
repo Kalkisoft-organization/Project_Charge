@@ -4,8 +4,8 @@ import { CountryList } from 'react-native-country-codes-picker';
 
 export default function SignInScreen({ navigation }) {
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [countryCode, setCountryCode] = useState('+91'); // Default India code
-  const [showCountryPicker, setShowCountryPicker] = useState(false); // State for controlling picker visibility
+  const [countryCode, setCountryCode] = useState('+91'); 
+  const [showCountryPicker, setShowCountryPicker] = useState(false); 
 
   return (
     <ImageBackground

@@ -1,6 +1,9 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+// apply from: "../../node_modules/react-native-vision-camera/android/camera.gradle"
+
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -105,15 +108,27 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+    allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+}
+
 }
 
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+    // implementation 'com.google.mlkit:barcode-scanning:17.2.0'
+
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
         implementation jscFlavor
     }
+
+    implementation 'com.google.mlkit:barcode-scanning:17.0.3'
 }
